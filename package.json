@@ -1,5 +1,5 @@
 {
-  "name": "react-app-hoi-dan-it",
+  "name": "Đức Vình",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,11 +7,10 @@
     "@formatjs/intl-relativetimeformat": "^7.3.6",
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "axios": "^0.21.1",
-    "bootstrap": "^5.0.1",
+    "bootstrap": "^5.3.5",
     "connected-react-router": "^6.9.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.0",
-    "node-sass": "^6.0.0",
     "react": "^17.0.2",
     "react-auth-wrapper": "^1.0.0",
     "react-autosuggest": "^10.1.0",
@@ -33,6 +32,7 @@
     "redux-persist": "^5.10.0",
     "redux-state-sync": "^2.1.0",
     "redux-thunk": "^2.3.0",
+    "sass": "^1.86.3",
     "typescript": "^4.3.2"
   },
   "scripts": {

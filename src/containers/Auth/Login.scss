@@ -1,0 +1,82 @@
+.login-background{
+    height: 100vh;
+    background: linear-gradient(135deg,rgba(34,193,195,1) 0%,rgba(253,187,45,1) 100%);
+    .login-container{
+        width:400px;
+        height: 100%;
+        margin: 0 auto;
+        border-radius: 10px;
+        background-color: white;
+        .login-content{
+            padding: 12px;
+
+            .text-login{
+                text-align: center;
+                font-weight: 600;
+                font-size: 24px;
+                padding-top: 10px;
+            }
+            .login-input{
+                margin: 7px 0;
+
+                .custom-input-password{
+                    position: relative;
+                    i {
+                        position: absolute;
+                        right: 5px;
+                        top: 10px;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .btn-login{
+                width: 100%;
+                margin: 10px 0;
+                height: 30px;
+                border-radius: 15px;
+                outline: none;
+                border: none;
+                background: linear-gradient(135deg,rgba(34,193,195,1) 0%,rgba(253,187,45,1) 100%);
+                color: white;
+            }
+            .forgot-password{
+              font-size: 12px;
+              cursor: pointer;
+            }
+            .social-login{
+                display: flex;
+                justify-content: space-evenly;
+                margin-top: 10px;
+                text-align: center;
+                .google{
+                    font-size: 30px;
+                    background-color: red;
+                    border-radius: 50%;
+                    height: 50px;
+                    width: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    cursor: pointer;
+                }
+                .facebook{
+                    font-size: 30px;
+                    background-color: blue;
+                    border-radius: 50%;
+                    height: 50px;
+                    width: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+
+            }
+
+
+        }
+
+    }
