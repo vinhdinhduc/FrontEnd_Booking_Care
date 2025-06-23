@@ -1,6 +1,7 @@
 {
-  "name": "Đức Vình",
+  "name": "DucVinh-Frontend-React.JS-QuickStart",
   "version": "0.1.0",
+ 
   "private": true,
   "dependencies": {
     "@formatjs/intl-pluralrules": "^3.5.6",
