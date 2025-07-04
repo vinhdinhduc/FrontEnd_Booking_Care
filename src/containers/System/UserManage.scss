@@ -14,6 +14,7 @@
   padding: 2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   max-width: 1200px;
+  min-height: 600px;
   margin: 0 auto;
 
   .title {
@@ -39,7 +40,9 @@
   }
 
   .table-wrapper {
-    overflow-x: auto;
+    overflow-y: auto;
+    //overflow-x: auto;
+    max-height: 400px;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
     background: white;
@@ -196,6 +199,21 @@
           }
         }
       }
+    }
+  }
+}
+
+.add-user-modal-container {
+
+  width: 700px;
+  .modal-body-user{
+    padding: 2rem;
+    display: flex;  
+    flex-direction: column;
+    gap: 1rem;
+
+    .input-container{
+
     }
   }
 }

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import {} from "@fortawesome/fontawesome-free-webfonts";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 import * as actions from "../../store/actions";
@@ -22,6 +24,7 @@ class Login extends Component {
       password: "",
       isShowPassword: false,
       errMessage: "",
+      isLoading: false,
     };
   }
   handleOnChangeUserName = (e) => {
@@ -34,26 +37,40 @@ class Login extends Component {
       password: event.target.value,
     });
   };
+  handleKeyDown = (e) => {
+    if (e.keyCode === KeyCodeUtils.ENTER) {
+      this.handleLogin();
+    }
+  };
   handleLogin = async () => {
+    const { username, password } = this.state;
+    if (!username || !password) {
+      this.setState({
+        errMessage: "Please enter your username and password",
+      });
+      return;
+    }
     this.setState({
       errMessage: "",
+      isLoading: true,
     });
     try {
-      let data = await handleLoginApi(this.state.username, this.state.password);
-      if (data && data.errCode !== 0) {
+      let data = await handleLoginApi(username, password);
+      if (data?.errCode !== 0) {
         this.setState({
-          errMessage: data.message,
+          errMessage: data?.message || "Login failed",
+          isLoading: false,
         });
+        return;
       }
-      if (data && data.errCode === 0) {
-        this.props.userLoginSuccess(data.user);
-        console.log("loging success");
-      }
+      this.props.userLoginSuccess(data.user);
+      this.props.navigate("/system/user-manage");
     } catch (e) {
       if (e.response) {
         if (e.response.data) {
           this.setState({
-            errMessage: e.response.data.message,
+            errMessage: e.response?.data?.message,
+            isLoading: false,
           });
         }
       }
@@ -67,6 +84,8 @@ class Login extends Component {
   };
 
   render() {
+    const { username, password, isShowPassword, errMessage, isLoading } =
+      this.state;
     return (
       <div className="login-background">
         <div className="login-container">
@@ -80,6 +99,7 @@ class Login extends Component {
                 placeholder="Enter your user name"
                 value={this.state.username}
                 onChange={(e) => this.handleOnChangeUserName(e)}
+                onKeyDown={(e) => this.handleKeyDown(e)}
               />
             </div>
             <div className="col-12 form-group login-input">
@@ -88,6 +108,7 @@ class Login extends Component {
                 <input
                   type={this.state.isShowPassword ? "text" : "password"}
                   onChange={(event) => this.handleOnChangePassword(event)}
+                  onKeyDown={(e) => this.handleKeyDown(e)}
                   className="form-control"
                   placeholder="Enter your password"
                   value={this.state.password}
@@ -102,13 +123,17 @@ class Login extends Component {
                   ></i>
                 </span>
               </div>
-              <div className="col-12" style={{ color: "red" }}>
-                {this.state.errMessage}
-              </div>
+              {errMessage && (
+                <div className="col-12 err-message">{errMessage}</div>
+              )}
             </div>
             <div className="col-12 ">
-              <button className="btn-login" onClick={() => this.handleLogin()}>
-                Login
+              <button
+                className="btn-login"
+                onClick={() => this.handleLogin()}
+                disabled={isLoading}
+              >
+                {isLoading ? <FontAwesomeIcon icon={faSpinner} /> : "Login"}
               </button>
             </div>
             <div className="col-12 ">

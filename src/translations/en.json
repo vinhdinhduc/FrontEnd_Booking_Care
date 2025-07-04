@@ -1,4 +1,29 @@
-{
+{   
+    "homeheader":{
+        "speciality":"Medical specialty",
+        "searchdoctor":"Find a doctor by specialty",
+        "health-facility":"Health facilities",
+        "select-room":"Choose hospital clinic",
+        "doctor":"Doctor",
+        "select-doctor":"Choose a good doctor",
+        "fee":"Check package",
+        "check-health":"General health check",
+        "support":"Support",
+        "welcome":"Welcome"
+        
+
+    },
+    "banner":{
+        "title1":"MEDICAL BACKGROUND",
+        "title2":"COMPREHENSIVE HEALTH CARE",
+        "child1":"Specialized examination",
+        "child2":"Remote examination",
+        "child3":"General examination",
+        "child4":"Medical Test",
+        "child5":"Mental Health",
+        "child6":"Dental examination",
+        "searchPlaceholder":"Search for a specialty "
+    },
     "common": {
         "add": "Add",
         "edit": "Edit",
@@ -31,7 +56,7 @@
             "system-administrator": {
                 "header": "System Administrator",
                 "user-manage": "User manage",
-                "product-manage": "Package manage",
+                "user-redux": "Manage User Using Redux",
                 "register-package-group-or-account": "Register service package for group/account"
             },
             "system-parameter": {
@@ -39,6 +64,33 @@
             }
         }
     },
+     "admin":{
+        "manage-user":"Users System",
+        "manage-doctor":"Manage doctor",
+        "manage-admin":"Manage admin",
+        "crud":"CRUD user",
+        "crud-redux":"CRUD Redux",
+        "clinic":"Clinics",
+        "manage-clinic":"Manage Clinics",
+        "specialty":"Specialties",
+        "manage-specialty":"Manage Specialties",
+        "handbook":"Handbook",
+        "manage-handbook":"Manage Handbook"
+     },
+     "user-redux":{
+        "add":"Add new users",
+        "email":"Email",
+        "password":"Password",
+        "firstName":"First Name",
+        "lastName":"Last Name",
+        "phone":"Phone Number",
+        "gender":"Gender",
+        "address":"Address",
+        "position":"Position",
+        "role":"Role",
+        "image":"Avatar",
+        "save":"Save"
+     },
     "system": {
         "user-manage": {
             "fail-to-load-fouser": "Fail to load system users list",
@@ -117,4 +169,5 @@
             "sure-delete-assign": "Are you sure to unassign service package to customer?"
         }
     }
+   
 }

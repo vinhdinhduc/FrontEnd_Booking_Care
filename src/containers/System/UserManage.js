@@ -1,36 +1,133 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPen, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 
+import {
+  getAllUsers,
+  createNewUserService,
+  deleteUser,
+  updateUser,
+} from "../../services/userService";
+import AddUserModal from "./AddUserModal";
+import EditUserModal from "./EditUserModal";
 import "./UserManage.scss";
-import { getAllUsers } from "../../services/userService";
+
 class UserManage extends Component {
   constructor(props) {
     super(props);
+    this.addUserModalRef = createRef();
     this.state = {
       arrUsers: [],
+      isOpenModal: false,
+      isOpenEditModal: false,
+      userEdit: null,
+      // State to control the modal visibility
     };
   }
 
   async componentDidMount() {
+    await this.getAllUsersFromReact();
+  }
+  getAllUsersFromReact = async () => {
+    let response = await getAllUsers("ALL");
+    if (response && response.errCode === 0) {
+      this.setState({
+        arrUsers: response.users,
+      });
+    }
+  };
+  toggleModal = () => {
+    this.setState({
+      isOpenModal: !this.state.isOpenModal,
+    });
+  };
+  handleAddNewUser = () => {
+    this.setState({
+      isOpenModal: true,
+    });
+  };
+  createNewUser = async (data) => {
     try {
-      console.log("Before API call"); // Kiểm tra có chạy tới đây không
-      let response = await getAllUsers("ALL"); // Gọi API để lấy tất cả người dùng
-      console.log("API response:", response); // Kiểm tra response
-
-      if (response && response.errCode === 0) {
-        this.setState({ arrUsers: response.users });
+      let response = await createNewUserService(data);
+      if (response && response.errCode !== 0) {
+        alert(response.errMessage);
+      } else {
+        await this.getAllUsersFromReact();
+        this.setState({
+          isOpenModal: false,
+        });
+        if (this.addUserModalRef.current) {
+          this.addUserModalRef.current.clearInput();
+        }
       }
     } catch (error) {
-      console.error("Error fetching users:", error);
+      console.log(error);
     }
-  }
-
+  };
+  handleDeleteUser = async (userId) => {
+    console.log("check userId", userId);
+    let res = await deleteUser(userId);
+    if (res && res.errCode === 0) {
+      await this.getAllUsersFromReact();
+    } else {
+    }
+  };
+  handleClearInput() {}
+  handleEditUser = (user) => {
+    this.setState({
+      isOpenEditModal: true,
+      userEdit: user,
+    });
+  };
+  toggleEditModal = () => {
+    this.setState({
+      isOpenEditModal: !this.state.isOpenEditModal,
+      userEdit: null,
+    });
+  };
+  updateUser = async (data) => {
+    let res = await updateUser(data);
+    if (res && res.errCode !== 0) {
+      alert("Cập nhật thất bại", res.errMessage);
+    }
+    this.getAllUsersFromReact();
+    this.setState({
+      isOpenEditModal: false,
+      userEdit: null,
+    });
+  };
   render() {
     let arrUsers = this.state.arrUsers; // Lấy danh sách người dùng từ state
+    console.log(arrUsers);
+
     return (
       <div className="users-container">
         <div className="text-center title">Manage users with Đức Vình</div>
+        <div className="mx-3 my-3">
+          <button
+            className="btn btn-primary p-4"
+            onClick={() => this.handleAddNewUser()}
+          >
+            {" "}
+            <FontAwesomeIcon icon={faPlus} />
+            Add new user
+          </button>
+          <AddUserModal
+            isOpen={this.state.isOpenModal}
+            toggleFromParent={this.toggleModal}
+            createNewUser={this.createNewUser}
+            ref={this.addUserModalRef}
+          />{" "}
+          {/* Render the AddUserModal component */}
+          <EditUserModal
+            isOpen={this.state.isOpenEditModal}
+            toggleFromParent={this.toggleEditModal}
+            updateUser={this.updateUser}
+            userEdit={this.state.userEdit}
+          />
+        </div>
         <div className="table-wrapper">
           <table id="customers">
             <thead>
@@ -51,8 +148,23 @@ class UserManage extends Component {
                     <td>{item.lastName}</td>
                     <td>{item.address}</td>
                     <td className="action-buttons">
-                      <button className="btn edit-btn">Edit</button>
-                      <button className="btn delete-btn">Delete</button>
+                      <button
+                        className="btn edit-btn"
+                        onClick={() => this.handleEditUser(item)}
+                      >
+                        {" "}
+                        <FontAwesomeIcon icon={faPen} />
+                        Edit
+                      </button>
+
+                      <button
+                        className="btn delete-btn"
+                        onClick={() => this.handleDeleteUser(item.id)}
+                      >
+                        {" "}
+                        <FontAwesomeIcon icon={faTrash} />
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 ))}

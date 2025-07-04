@@ -9,4 +9,31 @@ const handleLoginApi = (email, password) => {
 const getAllUsers = (inputId) => {
   return axios.get(`/api/get-all-users?id=${inputId}`);
 };
-export { handleLoginApi, getAllUsers };
+const createNewUserService = (data) => {
+  console.log("Check data from service");
+
+  return axios.post("/api/create-new-user", data);
+};
+const deleteUser = (userId) => {
+  console.log(userId);
+
+  return axios.delete("/api/delete-user", {
+    data: { id: userId },
+  });
+};
+const updateUser = (inputData) => {
+  console.log("edit user", inputData);
+
+  return axios.put("/api/edit-user", inputData);
+};
+const getAllCodeService = (inputType) => {
+  return axios(`/api/allcode?type=${inputType}`);
+};
+export {
+  handleLoginApi,
+  getAllUsers,
+  createNewUserService,
+  deleteUser,
+  updateUser,
+  getAllCodeService,
+};
