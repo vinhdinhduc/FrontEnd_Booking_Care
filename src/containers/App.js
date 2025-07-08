@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import { ConnectedRouter as Router } from "connected-react-router";
 import { history } from "../redux";
-import { ToastContainer } from "react-toastify";
 
 import {
   userIsAuthenticated,
@@ -17,7 +16,8 @@ import Login from "./Auth/Login";
 import Header from "./Header/Header";
 import System from "../routes/System";
 import HomePage from "./System/HomePage/HomePage";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { CustomToastCloseButton } from "../components/CustomToast";
 import ConfirmModal from "../components/ConfirmModal";
 
@@ -65,16 +65,16 @@ class App extends Component {
             </div>
 
             <ToastContainer
-              className="toast-container"
-              toastClassName="toast-item"
-              bodyClassName="toast-item-body"
-              autoClose={false}
-              hideProgressBar={true}
-              pauseOnHover={false}
-              pauseOnFocusLoss={true}
-              closeOnClick={false}
-              draggable={false}
-              closeButton={<CustomToastCloseButton />}
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
             />
           </div>
         </Router>

@@ -91,7 +91,8 @@
         "position":"Vị trí",
         "role":"Vai trò",
         "image":"Ảnh đại diện",
-        "save":"Lưu"
+        "save":"Lưu",
+        "edit":"Lưu thay đổi"
      },
     "system": {
         "user-manage": {
