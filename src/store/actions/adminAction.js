@@ -6,6 +6,8 @@ import {
   deleteUser,
   updateUser,
   getTopDoctorService,
+  getAllDoctors,
+  saveInfoDoctor,
 } from "../../services/userService";
 import { toast } from "react-toastify";
 import { dispatch } from "../../redux";
@@ -193,6 +195,77 @@ export const fetchTopDoctors = () => {
       dispatch({
         type: actionTypes.FETCH_TOP_DOCTORS_FAILED,
       });
+    }
+  };
+};
+
+export const fetchAllDoctors = () => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await getAllDoctors();
+      console.log("check data response: ", res);
+
+      if (res && res.errCode === 0) {
+        dispatch({
+          type: actionTypes.FETCH_ALL_DOCTORS_SUCCESS,
+          dataDr: res.data,
+        });
+      } else {
+        dispatch({
+          type: actionTypes.FETCH_ALL_DOCTORS_FAILED,
+        });
+      }
+    } catch (error) {
+      dispatch({
+        type: actionTypes.FETCH_ALL_DOCTORS_FAILED,
+      });
+    }
+  };
+};
+export const saveDetailDoctor = (inputData) => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await saveInfoDoctor(inputData);
+      console.log("check data response: ", res);
+
+      if (res && res.errCode === 0) {
+        toast.success("Save info doctor successfully!");
+        dispatch({
+          type: actionTypes.SAVE_DETAIL_DOCTORS_SUCCESS,
+        });
+      } else {
+        toast.error("Save info doctor failed!");
+        dispatch({
+          type: actionTypes.SAVE_DETAIL_DOCTORS_FAILED,
+        });
+      }
+    } catch (error) {
+      toast.error("Save info doctor failed!");
+      dispatch({
+        type: actionTypes.SAVE_DETAIL_DOCTORS_FAILED,
+      });
+    }
+  };
+};
+export const fetchAllScheduleTime = () => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await getAllCodeService("TIME");
+      if (res && res.errCode === 0) {
+        dispatch({
+          type: actionTypes.FETCH_SCHEDULE_HOURS_DOCTORS_SUCCESS,
+          data: res.data,
+        });
+      } else {
+        dispatch({
+          type: actionTypes.FETCH_SCHEDULE_HOURS_DOCTORS_FAILED,
+        });
+      }
+    } catch (error) {
+      dispatch({
+        type: actionTypes.FETCH_SCHEDULE_HOURS_DOCTORS_FAILED,
+      });
+      console.log("Errorr", error);
     }
   };
 };

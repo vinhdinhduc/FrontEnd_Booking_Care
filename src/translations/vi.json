@@ -14,6 +14,12 @@
         "welcome":"Xin chào"
 
     },
+    "manage-schedule":{
+        "title":"Quản lý kế hoạch khám bệnh của bác sĩ",
+        "choose-doctor":"Chọn bác sĩ",
+        "choose-date":"Chọn ngày",
+        "save":"Lưu thông tin"
+    },
     "banner":{
         "title1":"NỀN TẢNG Y TẾ",
         "title2":"CHĂM SÓC SỨC KHOẺ TOÀN DIỆN",
@@ -62,6 +68,9 @@
             },
             "system-parameter": {
                 "header": "Tham số hệ thống"
+            },
+              "doctor":{
+                "manage-schedule":"Quản lý kế hoạch khám bệnh"
             }
         }
     },

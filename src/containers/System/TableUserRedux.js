@@ -101,11 +101,11 @@ class TableUserRedux extends Component {
             </table>
           </div>
         </div>
-        <MdEditor
+        {/* <MdEditor
           style={{ height: "500px" }}
           renderHTML={(text) => mdParser.render(text)}
           onChange={handleEditorChange}
-        />
+        /> */}
       </>
     );
   }

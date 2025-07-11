@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as actions from "../../store/actions";
 import { FormattedMessage, injectIntl } from "react-intl";
+import { withRouter } from "react-router";
 import "./HomeHeader.scss";
 import {
   faBars,
@@ -22,6 +23,12 @@ class HomeHeader extends Component {
   handleChangLanguage = (language) => {
     this.props.changeLanguageApp(language);
   };
+
+  returnToHome = () => {
+    if (this.props.history) {
+      this.props.history.push("/home");
+    }
+  };
   render() {
     let language = this.props.language;
     console.log("check languae", language);
@@ -32,7 +39,9 @@ class HomeHeader extends Component {
           <div className="home-header-content">
             <div className="left-content">
               <FontAwesomeIcon icon={faBars} className="menu-bar" />
-              <div className="header-logo">ĐỨC VÌNH</div>
+              <div className="header-logo" onClick={() => this.returnToHome()}>
+                ĐỨC VÌNH
+              </div>
             </div>
             <div className="center-content">
               <div className="child-content">
@@ -109,91 +118,93 @@ class HomeHeader extends Component {
             </div>
           </div>
         </div>
-        <div className="home-banner-header">
-          <div className="content-up">
-            <div className="banner-title">
-              <h1>
-                <FormattedMessage id="banner.title1" />{" "}
-              </h1>
-            </div>
-            <div className="banner-title">
-              <h1>
-                {" "}
-                <FormattedMessage id="banner.title2" />
-              </h1>
-            </div>
-            <div className="banner-search">
-              <div className="icon-search">
-                <FontAwesomeIcon icon={faSearch} />
+        {this.props.isShowBanner === true && (
+          <div className="home-banner-header">
+            <div className="content-up">
+              <div className="banner-title">
+                <h1>
+                  <FormattedMessage id="banner.title1" />{" "}
+                </h1>
               </div>
-              <div>
-                <FormattedMessage id="banner.searchPlaceholder">
-                  {(placeholder) => (
-                    <input type="text" placeholder={placeholder} />
-                  )}
-                </FormattedMessage>
+              <div className="banner-title">
+                <h1>
+                  {" "}
+                  <FormattedMessage id="banner.title2" />
+                </h1>
+              </div>
+              <div className="banner-search">
+                <div className="icon-search">
+                  <FontAwesomeIcon icon={faSearch} />
+                </div>
+                <div>
+                  <FormattedMessage id="banner.searchPlaceholder">
+                    {(placeholder) => (
+                      <input type="text" placeholder={placeholder} />
+                    )}
+                  </FormattedMessage>
+                </div>
+              </div>
+            </div>
+            <div className="content-down">
+              <div className="options">
+                <div className="option-child">
+                  <div className="icon-child">
+                    <FontAwesomeIcon icon={faHospital} />
+                  </div>
+                  <div className="text-child">
+                    {" "}
+                    <FormattedMessage id="banner.child1" />
+                  </div>
+                </div>
+                <div className="option-child">
+                  <div className="icon-child">
+                    <FontAwesomeIcon icon={faMobile} />
+                  </div>
+                  <div className="text-child">
+                    {" "}
+                    <FormattedMessage id="banner.child2" />
+                  </div>
+                </div>
+                <div className="option-child">
+                  <div className="icon-child">
+                    <FontAwesomeIcon icon={faProcedures} />
+                  </div>
+                  <div className="text-child">
+                    {" "}
+                    <FormattedMessage id="banner.child3" />
+                  </div>
+                </div>
+                <div className="option-child">
+                  <div className="icon-child">
+                    <FontAwesomeIcon icon={faFlask} />
+                  </div>
+                  <div className="text-child">
+                    {" "}
+                    <FormattedMessage id="banner.child4" />
+                  </div>
+                </div>
+                <div className="option-child">
+                  <div className="icon-child">
+                    <FontAwesomeIcon icon={faUser} />
+                  </div>
+                  <div className="text-child">
+                    {" "}
+                    <FormattedMessage id="banner.child5" />
+                  </div>
+                </div>
+                <div className="option-child">
+                  <div className="icon-child">
+                    <FontAwesomeIcon icon={faBriefcase} />
+                  </div>
+                  <div className="text-child">
+                    {" "}
+                    <FormattedMessage id="banner.child6" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div className="content-down">
-            <div className="options">
-              <div className="option-child">
-                <div className="icon-child">
-                  <FontAwesomeIcon icon={faHospital} />
-                </div>
-                <div className="text-child">
-                  {" "}
-                  <FormattedMessage id="banner.child1" />
-                </div>
-              </div>
-              <div className="option-child">
-                <div className="icon-child">
-                  <FontAwesomeIcon icon={faMobile} />
-                </div>
-                <div className="text-child">
-                  {" "}
-                  <FormattedMessage id="banner.child2" />
-                </div>
-              </div>
-              <div className="option-child">
-                <div className="icon-child">
-                  <FontAwesomeIcon icon={faProcedures} />
-                </div>
-                <div className="text-child">
-                  {" "}
-                  <FormattedMessage id="banner.child3" />
-                </div>
-              </div>
-              <div className="option-child">
-                <div className="icon-child">
-                  <FontAwesomeIcon icon={faFlask} />
-                </div>
-                <div className="text-child">
-                  {" "}
-                  <FormattedMessage id="banner.child4" />
-                </div>
-              </div>
-              <div className="option-child">
-                <div className="icon-child">
-                  <FontAwesomeIcon icon={faUser} />
-                </div>
-                <div className="text-child">
-                  {" "}
-                  <FormattedMessage id="banner.child5" />
-                </div>
-              </div>
-              <div className="option-child">
-                <div className="icon-child">
-                  <FontAwesomeIcon icon={faBriefcase} />
-                </div>
-                <div className="text-child">
-                  {" "}
-                  <FormattedMessage id="banner.child6" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        )}
       </React.Fragment>
     );
   }
@@ -211,4 +222,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(HomeHeader)
+);

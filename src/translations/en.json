@@ -61,8 +61,19 @@
             },
             "system-parameter": {
                 "header": "System-parameter"
+            },
+            "doctor":{
+                "manage-schedule":"Manage doctor's schedule"
             }
+
+
         }
+    },
+     "manage-schedule":{
+        "title":"Manage doctor examination plan",
+        "choose-doctor":"Choose Doctor",
+        "choose-date":"Choose Date",
+        "save":"Save information"
     },
      "admin":{
         "manage-user":"Users System",

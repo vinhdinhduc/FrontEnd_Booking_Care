@@ -5,7 +5,7 @@ import {} from "@fortawesome/fontawesome-free-webfonts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
 import * as actions from "../../store/actions";
 import { KeyCodeUtils, LanguageUtils } from "../../utils";
 
@@ -62,9 +62,11 @@ class Login extends Component {
           isLoading: false,
         });
         return;
+      } else {
+        toast.success("Đăng nhập thành công!");
+        this.props.userLoginSuccess(data.user);
+        this.props.navigate("/system/user-manage");
       }
-      this.props.userLoginSuccess(data.user);
-      this.props.navigate("/system/user-manage");
     } catch (e) {
       if (e.response) {
         if (e.response.data) {

@@ -18,8 +18,12 @@ export const adminMenu = [
         // ],
       },
       { name: "admin.crud-redux", link: "/system/user-redux" },
-      { name: "admin.manage-doctor", link: "/system/user-doctor" },
+      { name: "admin.manage-doctor", link: "/system/manage-doctor" },
       { name: "admin.manage-admin", link: "/system/user-admin" },
+      {
+        name: "menu.system.doctor.manage-schedule",
+        link: "/doctor/manage-schedule",
+      },
     ],
   },
   //Quản lý phòng khám
@@ -38,5 +42,11 @@ export const adminMenu = [
     //Quản lý cẩm nang
     name: "admin.handbook",
     menus: [{ name: "admin.manage-handbook", link: "/system/manage-handbook" }],
+  },
+];
+export const doctorMenu = [
+  {
+    name: "menu.system.doctor.manage-schedule",
+    link: "/doctor/manage-schedule",
   },
 ];
