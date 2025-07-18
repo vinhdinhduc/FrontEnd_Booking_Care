@@ -8,7 +8,10 @@ import * as action from "../../store/actions/adminAction";
 import Select from "react-select";
 import { languages } from "../../utils/constant";
 import { CRUD_ACTIONS } from "../../utils";
-import { getDetailDoctorById } from "../../services/userService";
+import {
+  getDetailDoctorById,
+  bulkCreateSchedule,
+} from "../../services/userService";
 import DatePicker from "../../components/Input/DatePicker";
 import moment from "moment";
 import { dateFormat } from "../../utils/constant";
@@ -103,7 +106,7 @@ class ManageSchedule extends Component {
       return { rangeTime: rangeTimeCopy };
     });
   };
-  handleSaveShedule = () => {
+  handleSaveSchedule = async () => {
     let { rangeTime, selectedDoctor, currentDate } = this.state;
     let result = [];
 
@@ -116,7 +119,7 @@ class ManageSchedule extends Component {
       return;
     }
 
-    let formatedDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER);
+    let formatedDate = moment(currentDate).startOf("day").valueOf();
 
     if (rangeTime && rangeTime.length > 0) {
       let selectedTime = rangeTime.filter((item) => item.isSelected === true);
@@ -125,19 +128,30 @@ class ManageSchedule extends Component {
           let object = {};
           object.doctorId = selectedDoctor.value;
           object.date = formatedDate;
-          object.time = schedule.keyMap;
+          object.timeType = schedule.keyMap;
           result.push(object);
         });
       } else {
         toast.error("Invalid selected time!");
+        return;
       }
+    }
+    let finalData = {
+      arrSchedule: result,
+      formatedDate: formatedDate,
+      doctorId: selectedDoctor.value,
+    };
+    console.log("data to send", finalData);
+    let res = await bulkCreateSchedule(finalData);
+    if (res && res.errCode === 0) {
+      toast.success("Thêm thông tin thành công");
     }
   };
 
   render() {
     const { alltimeRedux, language } = this.props;
     const { rangeTime } = this.state;
-
+    let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
     console.log("Check state ", alltimeRedux);
 
     return (
@@ -165,7 +179,7 @@ class ManageSchedule extends Component {
                 <DatePicker
                   onChange={this.handleOnChangeDatePicker}
                   value={this.state.currentDate}
-                  minDate={new Date()}
+                  minDate={yesterday}
                 />
               </div>
               <div className="col-12 pick-hour-container">
@@ -188,7 +202,10 @@ class ManageSchedule extends Component {
                   })}
               </div>
               <div className="col-12">
-                <button className="btn btn-primary btn-save-schedule">
+                <button
+                  className="btn btn-primary btn-save-schedule"
+                  onClick={() => this.handleSaveSchedule()}
+                >
                   <FormattedMessage id="manage-schedule.save" />
                 </button>
               </div>

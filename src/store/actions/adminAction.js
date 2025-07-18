@@ -269,3 +269,46 @@ export const fetchAllScheduleTime = () => {
     }
   };
 };
+export const fetchRequiredDoctorInfo = () => {
+  return async (dispatch, getState) => {
+    try {
+      dispatch({ type: actionTypes.FETCH_REQUIRED_DOCTOR_INFO_START });
+      let resPrice = await getAllCodeService("PRICE");
+      let resPayment = await getAllCodeService("PAYMENT");
+      let resProvince = await getAllCodeService("PROVINCE");
+      if (
+        resPrice &&
+        resPrice.errCode === 0 &&
+        resPayment &&
+        resPayment.errCode === 0 &&
+        resProvince &&
+        resProvince.errCode === 0
+      ) {
+        let data = {
+          resPrice: resPrice.data,
+          resPayment: resPayment.data,
+          resProvince: resProvince.data,
+        };
+        toast.success("Lấy thành công");
+        dispatch(fetchRequiredDoctorInfoSuccess(data));
+      } else {
+        toast.error("Lấy thất bại");
+
+        dispatch(fetchRequiredDoctorInfoFailed());
+      }
+    } catch (error) {
+      dispatch(fetchRequiredDoctorInfoFailed());
+
+      console.log("Errorr", error);
+    }
+  };
+};
+
+export const fetchRequiredDoctorInfoSuccess = (data) => ({
+  type: actionTypes.FETCH_REQUIRED_DOCTOR_INFO_SUCCESS,
+  data: data,
+});
+
+export const fetchRequiredDoctorInfoFailed = () => ({
+  type: actionTypes.FETCH_REQUIRED_DOCTOR_INFO_FAILED,
+});

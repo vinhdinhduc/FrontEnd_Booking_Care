@@ -1,20 +1,28 @@
 import React, { Component, createRef } from "react";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPen, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendarAlt,
+  faPen,
+  faPlus,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 import HomeHeader from "../../Header/HomeHeader";
 import { getDetailDoctorById } from "../../../services/userService";
 import "react-markdown-editor-lite/lib/index.css";
 import * as action from "../../../store/actions";
+import DoctorSchedule from "./DoctorSchedule";
 
 import "./DetailDoctor.scss";
 import { languages } from "../../../utils";
+import DoctorExtraInfo from "./DoctorExtraInfo";
 
 class DetailDoctor extends Component {
   constructor(props) {
     super(props);
     this.state = {
       detailDoctor: {},
+      currentDoctorId: -1,
     };
   }
 
@@ -25,6 +33,9 @@ class DetailDoctor extends Component {
       this.props.match.params.id
     ) {
       let id = this.props.match.params.id;
+      this.setState({
+        currentDoctorId: id,
+      });
       let res = await getDetailDoctorById(id);
       if (res && res.errCode === 0) {
         this.setState({
@@ -70,7 +81,17 @@ class DetailDoctor extends Component {
               </div>
             </div>
           </div>
-          <div className="schedule-doctor"></div>
+
+          <div className="schedule-doctor">
+            <div className="schedule-doctor_left">
+              <DoctorSchedule doctorIdFromParent={this.state.currentDoctorId} />
+            </div>
+            <div className="schedule-doctor_right">
+              <DoctorExtraInfo
+                doctorIdFromParent={this.state.currentDoctorId}
+              />
+            </div>
+          </div>
           <div className="detail-info-doctor">
             {detailDoctor &&
               detailDoctor.Markdown &&

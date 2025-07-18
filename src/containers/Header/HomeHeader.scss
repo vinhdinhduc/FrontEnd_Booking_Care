@@ -1,166 +1,153 @@
-.home-header-container{
+.home-header-container {
     width: 100%;
     height: 85px;
     padding: 0 20px;
     position: sticky;
     top: 0;
-    background:#edfffa;
-    z-index: 10000;
+    background: #edfffa;
+    z-index: 100;
     //border: 1px solid red;
-    .home-header-content{
+    .home-header-content {
         width: 100%;
         height: 100%;
         display: flex;
 
-        .left-content{
+        .left-content {
             width: 25%;
             display: flex;
             align-items: center;
             justify-content: space-evenly;
             cursor: pointer;
-             .menu-bar{
+            .menu-bar {
                 font-size: 24px;
-             }
-            .header-logo{
+            }
+            .header-logo {
                 font-size: 50px;
                 color: aqua;
             }
         }
-        .center-content{
+        .center-content {
             width: 50%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             cursor: pointer;
-            .child-content{
-                .subs-title{
+            .child-content {
+                .subs-title {
                     font-size: 12px;
                     font-weight: 600px;
                 }
             }
         }
-        .right-content{
+        .right-content {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 25%;
-                    
 
-            .support{
+            .support {
                 display: flex;
                 justify-content: space-between;
                 font-size: 24px;
                 color: chocolate;
                 margin-right: 15px;
-                    
-                
             }
-            .language-vi{
-                    margin: 0 5px;
-                    cursor: pointer;
-                    opacity: 0.2;
+            .language-vi {
+                margin: 0 5px;
+                cursor: pointer;
+                opacity: 0.2;
 
-                    &.active{
-                        opacity: 1;
-                        span{
-                            color:orange
-                        }
-                        
+                &.active {
+                    opacity: 1;
+                    span {
+                        color: orange;
                     }
-                    &:hover{
-                            opacity:0.7 ;
-                        }
+                }
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+            .language-en {
+                cursor: pointer;
+                opacity: 0.2;
+
+                &.active {
+                    opacity: 1;
+                    span {
+                        color: orange;
                     }
-                    .language-en{
-                        cursor: pointer;
-                        opacity: 0.2;
-                        
-                        &.active{
-                            opacity: 1;
-                        span{
-                            color:orange
-                        }
-                        
-                    }
-                    &:hover{
-                            opacity:0.7 ;
-                        }
-                    }
+                }
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
         }
-        
     }
-
 }
-.home-banner-header{
+.home-banner-header {
     background: rgb(17, 99, 10);
     //background-image: url("../../assets/images/banner.jfif");
     background-repeat: no-repeat;
     background-size: cover;
     height: 485px;
     display: flex;
-    background-position: center ;
-     
-    flex-direction: column;
-   // justify-content: center;
-    .content-up{
-        background-image: linear-gradient(rgba(126,126,126,0.25), rgba(255,255,255,0.1));
-       height: 65%;
-        padding-top: 15px;
-        .banner-title{
-            h1{
-                 text-align: center;
-            color: aliceblue;
-            text-shadow: 1px gainsboro;
-            font-weight: 600;
-            margin-bottom: 15px;
-            }
-            
+    background-position: center;
 
+    flex-direction: column;
+    // justify-content: center;
+    .content-up {
+        background-image: linear-gradient(rgba(126, 126, 126, 0.25), rgba(255, 255, 255, 0.1));
+        height: 65%;
+        padding-top: 15px;
+        .banner-title {
+            h1 {
+                text-align: center;
+                color: aliceblue;
+                text-shadow: 1px gainsboro;
+                font-weight: 600;
+                margin-bottom: 15px;
+            }
         }
-        .banner-search{
+        .banner-search {
             background-color: rgba(211, 233, 12, 0.616);
             display: flex;
             width: fit-content;
             border-radius: 24px;
             justify-content: center;
             align-items: center;
-            margin:0 auto ;
+            margin: 0 auto;
             padding: 10px;
             cursor: pointer;
-            .icon-search{
+            .icon-search {
                 font-size: 24px;
                 margin: 0 5px;
-
             }
-            input{
+            input {
                 height: 30px;
                 width: 385px;
                 background: transparent;
                 border: none;
                 outline: none;
                 margin-left: 5px;
-                
             }
         }
-
     }
-    .content-down{
+    .content-down {
         padding: 15px;
         height: 35%;
         display: flex;
         justify-content: center;
         align-items: flex-end;
-          background-image: linear-gradient(rgba(126,126,126,0.25), rgba(255,255,255,0.1));
-        .options{
+        background-image: linear-gradient(rgba(126, 126, 126, 0.25), rgba(255, 255, 255, 0.1));
+        .options {
             display: flex;
             text-align: center;
             gap: 50px;
-            .option-child{
-            width: 100px;
-             cursor: pointer;
-                .icon-child{
-                    
-                   margin: 0 auto;
+            .option-child {
+                width: 100px;
+                cursor: pointer;
+                .icon-child {
+                    margin: 0 auto;
                     padding: 18px;
                     width: 60px;
                     height: 60px;
@@ -171,15 +158,13 @@
 
                     background-color: white;
                 }
-                .text-child{
+                .text-child {
                     font-size: 14px;
                     padding: 8px;
                     font-weight: 500;
-                    color: white
+                    color: white;
                 }
             }
         }
     }
 }
-
-

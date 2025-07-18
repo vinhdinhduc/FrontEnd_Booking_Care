@@ -1,0 +1,135 @@
+.doctor-schedule-container {
+    font-family: "Arial", sans-serif;
+    padding: 20px;
+    border-radius: 8px;
+    // background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    min-height: 2 00px;
+
+    // margin: 0 120px;
+
+    .choose-time {
+        margin-bottom: 20px;
+
+        select {
+            width: 100%;
+            padding: 10px 15px;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid #17a2b8;
+            border-radius: 4px;
+            background-color: white;
+            font-size: 16px;
+            color: #495057;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+            // appearance: none;
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 16px;
+            width: 250px;
+
+            &:focus {
+                outline: none;
+                border-color: #80bdff;
+                box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            }
+
+            option {
+                padding: 8px;
+            }
+        }
+    }
+
+    .calendar {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #e9f5ff;
+        border-radius: 4px;
+        width: 250px;
+
+        &_icon {
+            color: #17a2b8;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        &_title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #343a40;
+        }
+    }
+    .all-available-time {
+        span {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .time-content-btns {
+            .btn-vi {
+                min-width: 120px;
+            }
+            .btn-en {
+                min-width: 170px;
+            }
+            .btn-schedule {
+                display: inline-block;
+                padding: 8px 16px;
+                background-color: rgb(190, 180, 36);
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                margin-right: 10px;
+                margin-bottom: 10px;
+
+                &:hover {
+                    background-color: orangered;
+                    border: 3px solid rgb(44, 139, 0);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+
+                &:active {
+                    transform: translateY(0);
+                }
+            }
+        }
+        .book-free {
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    }
+
+    // Responsive design
+    @media (max-width: 768px) {
+        padding: 15px;
+
+        .choose-time select {
+            font-size: 14px;
+            padding: 8px 12px;
+        }
+
+        .calendar {
+            &_icon {
+                font-size: 18px;
+            }
+
+            &_title {
+                font-size: 16px;
+            }
+        }
+
+        .btn-schedule {
+            padding: 6px 12px;
+            font-size: 13px;
+        }
+    }
+}
