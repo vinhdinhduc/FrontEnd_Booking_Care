@@ -1,0 +1,175 @@
+.section-outstanding-doctor {
+    background: #7aebc8 !important;
+    margin: 16px 0;
+    padding-bottom: 40px;
+
+    .section-container {
+        .section-header {
+            .btn-section {
+                &.section-outstanding-doctor {
+                    background-color: #7aebc8;
+                    color: #333;
+                    font-weight: 500;
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background-color: #6bd4b8;
+                        transform: translateY(-1px);
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                    }
+                }
+            }
+        }
+
+        .section-body {
+            &.section-outstanding-doctor {
+                .section-customize {
+                    padding: 10px;
+                    cursor: pointer;
+                    transition: transform 0.3s ease;
+
+                    &:hover {
+                        transform: translateY(-5px);
+                    }
+
+                    .customize-border {
+                        background: #fff;
+                        border-radius: 12px;
+                        padding: 20px;
+                        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+                        transition: all 0.3s ease;
+                        border: 1px solid rgba(255, 255, 255, 0.8);
+
+                        &:hover {
+                            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+                            border-color: #7aebc8;
+                        }
+
+                        .outer-bg {
+                            display: flex;
+                            justify-content: center;
+                            margin-bottom: 15px;
+                            position: relative;
+
+                            .bg-image {
+                                &.section-outstanding-doctor {
+                                    width: 120px;
+                                    height: 120px;
+                                    border-radius: 50%;
+                                    background-size: cover;
+                                    background-position: center center;
+                                    background-repeat: no-repeat;
+                                    border: 4px solid #fff;
+                                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                                    transition: all 0.3s ease;
+
+                                    &:hover {
+                                        transform: scale(1.05);
+                                        border-color: #7aebc8;
+                                    }
+                                }
+                            }
+                        }
+
+                        .position {
+                            text-align: center;
+
+                            > div {
+                                &:first-child {
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                    color: #333;
+                                    margin-bottom: 8px;
+                                    line-height: 1.4;
+                                }
+
+                                &:last-child {
+                                    font-size: 14px;
+                                    color: #666;
+                                    font-style: italic;
+                                    opacity: 0.8;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+    .section-outstanding-doctor {
+        .section-container {
+            margin: 0 20px;
+            padding: 10px;
+
+            .section-header {
+                .title-section {
+                    font-size: 18px;
+                }
+
+                .btn-section {
+                    &.section-outstanding-doctor {
+                        padding: 6px 12px;
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .section-body {
+                &.section-outstanding-doctor {
+                    .section-customize {
+                        .customize-border {
+                            padding: 15px;
+
+                            .outer-bg {
+                                .bg-image {
+                                    &.section-outstanding-doctor {
+                                        width: 100px;
+                                        height: 100px;
+                                    }
+                                }
+                            }
+
+                            .position {
+                                > div {
+                                    &:first-child {
+                                        font-size: 14px;
+                                    }
+
+                                    &:last-child {
+                                        font-size: 12px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Animation for loading state
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: 200px 0;
+    }
+}
+
+.section-outstanding-doctor {
+    .loading-skeleton {
+        .bg-image {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200px 100%;
+            animation: shimmer 1.5s infinite;
+        }
+    }
+}

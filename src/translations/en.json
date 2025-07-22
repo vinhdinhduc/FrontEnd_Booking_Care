@@ -63,7 +63,8 @@
                 "header": "System-parameter"
             },
             "doctor":{
-                "manage-schedule":"Manage doctor's schedule"
+                "manage-schedule":"Manage doctor's schedule",
+                "manage-patient":"Manage patient"
             }
 
 
@@ -99,7 +100,9 @@
         "province":"Province",
         "nameClinic": "Clinic name",
         "addressClinic":"Clinic address",
-        "note":"Note"
+        "note":"Note",
+         "specialty":"Choose specialty",
+        "clinic":"Choose clinic"
     },
      "user-redux":{
         "add":"Add new users",
@@ -220,7 +223,10 @@
             "btnConfirm":"Confirm",
             "btnCancel":"Cancel",
             "priceBooking":"Free Booking",
-            "price":"Price"
+            "price":"Price",
+            "info-success":"Appointment confirmation successful!",
+            "info-error":"Appointment does not exist or has been confirmed!"
+
         }
     }
    

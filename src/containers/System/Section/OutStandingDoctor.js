@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { languages } from "../../../utils";
 import { withRouter } from "react-router-dom";
 import * as action from "../../../store/actions";
+// import "./OutStandingDoctor.scss";
 import "../HomePage/HomePage.scss";
 
 class OutStandingDoctor extends Component {

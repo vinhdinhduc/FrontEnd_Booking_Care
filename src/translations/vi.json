@@ -70,7 +70,8 @@
                 "header": "Tham số hệ thống"
             },
               "doctor":{
-                "manage-schedule":"Quản lý kế hoạch khám bệnh"
+                "manage-schedule":"Quản lý kế hoạch khám bệnh",
+                "manage-patient":"Quản lý bệnh nhân khám bệnh"
             }
         }
     },
@@ -98,7 +99,9 @@
         "province":"Tỉnh thành",
         "nameClinic": "Tên phòng khám",
         "addressClinic":"Địa chỉ phòng khám",
-        "note":"Ghi chú"
+        "note":"Ghi chú",
+        "specialty":"Chọn chuyên khoa",
+        "clinic":"Chọn phòng khám"
     },
        "user-redux":{
         "add":"Thêm người dùng mới",
@@ -220,7 +223,9 @@
             "btnConfirm":"Xác nhận",
             "btnCancel":"Huỷ",
             "priceBooking":"Miễn phí đặt lịch",
-            "price":"Giá khám"
+            "price":"Giá khám",
+             "info-success":"Xác nhận lịch hẹn thành công!",
+            "info-error":"Lịch hẹn không tồn tại hoặc đã được xác nhận!"
         }
     }
 }

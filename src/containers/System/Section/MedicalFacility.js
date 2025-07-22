@@ -9,12 +9,38 @@ import {
   faChevronRight,
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
+
+import { getAllClinic } from "../../../services/userService";
+import { withRouter } from "react-router";
 import "../HomePage/HomePage.scss";
 
 class MedicalFacility extends Component {
-  componentDidMount() {}
+  constructor(props) {
+    super(props);
+    this.state = {
+      listClinic: [],
+    };
+  }
+  async componentDidMount() {
+    let res = await getAllClinic();
+    console.log("check res clinic", res);
+
+    if (res && res.errCode === 0) {
+      this.setState({
+        listClinic: res.data ? res.data : [],
+      });
+    }
+  }
+  handleNavigationDetailClinic = (item) => {
+    if (this.props.history) {
+      this.props.history.push(`/detail-clinic/${item.id}`);
+    }
+  };
 
   render() {
+    let { listClinic } = this.state;
+    console.log("Check state", this.state);
+
     return (
       <div className="section-share medical-facility">
         <div className="section-container">
@@ -27,30 +53,23 @@ class MedicalFacility extends Component {
               {...this.props.settings}
               // nextArrow={<NextArrow slidesToShow={settings.slidesToShow}
             >
-              <div className="section-customize">
-                <div className="bg-image medical-facility" />
-                <div className="section-text">Hệ thống y tế thu cúc 1</div>
-              </div>
-              <div className="section-customize ">
-                <div className="bg-image medical-facility" />
-                <div className="section-text">Hệ thống y tế thu cúc 2</div>
-              </div>
-              <div className="section-customize">
-                <div className="bg-image medical-facility" />
-                <div className="section-text">Hệ thống y tế thu cúc 3 </div>
-              </div>
-              <div className="section-customize">
-                <div className="bg-image medical-facility" />
-                <div className="section-text">Hệ thống y tế thu cúc 4</div>
-              </div>
-              <div className="section-customize">
-                <div className="bg-image medical-facility" />
-                <div className="section-text">Hệ thống y tế thu cúc 5</div>
-              </div>
-              <div className="section-customize">
-                <div className="bg-image medical-facility" />
-                <div className="section-text">Hệ thống y tế thu cúc 6</div>
-              </div>
+              {listClinic &&
+                listClinic.length > 0 &&
+                listClinic.map((item, index) => {
+                  return (
+                    <div
+                      className="section-customize"
+                      key={index}
+                      onClick={() => this.handleNavigationDetailClinic(item)}
+                    >
+                      <div
+                        className="bg-image medical-facility"
+                        style={{ backgroundImage: `url(${item.image})` }}
+                      />
+                      <div className="section-text">{item.name}</div>
+                    </div>
+                  );
+                })}
             </Slider>
           </div>
         </div>
@@ -67,4 +86,6 @@ const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MedicalFacility);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(MedicalFacility)
+);

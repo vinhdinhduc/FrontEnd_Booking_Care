@@ -1,0 +1,144 @@
+.detail-specialty-container {
+    background: #eeeeee;
+    min-height: 100vh;
+
+    .detail-specialty-body {
+        padding: 12px;
+        margin: 5px 80px;
+
+        .description-specialty {
+            // height: 250px;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+
+            .short {
+                max-height: 200px;
+                overflow: hidden;
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: 50px;
+                    background: linear-gradient(transparent, #fff);
+                    pointer-events: none;
+                }
+            }
+            .full {
+                max-height: none;
+                overflow: visible;
+            }
+            .view-more {
+                margin-top: 15px;
+                text-align: center;
+
+                span {
+                    color: #45c3d2;
+                    cursor: pointer;
+                    font-weight: 600;
+                    padding: 8px 16px;
+                    border: 1px solid #45c3d2;
+                    border-radius: 20px;
+                    background: transparent;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background: #45c3d2;
+                        color: #fff;
+                        transform: translateY(-1px);
+                    }
+                }
+            }
+        }
+        .search-province-doctor {
+            select {
+                height: 50px;
+                padding: 5px 12px;
+                outline: none;
+                border: none;
+                border-radius: 4px;
+                margin: 20px 0;
+                box-shadow: 2px 1px 3px 0px rgba(168, 192, 199, 0.3);
+                cursor: pointer;
+                font-size: 18px;
+            }
+        }
+
+        .each-doctor {
+            background-color: white;
+            display: flex;
+            width: 100%;
+            border-radius: 14px;
+            margin-bottom: 18px;
+            min-height: 450px;
+            box-shadow: 0 2px 8px rgba(0, 247, 255, 0.3);
+            transition: all 0.3s ease;
+
+            &:hover {
+                box-shadow: 0 4px 12px rgba(0, 247, 255, 0.5);
+                transform: translateY(-2px);
+            }
+
+            .dt-content-left {
+                width: 50%;
+                border-right: 1px solid #eeeeee;
+                padding: 28px 10px;
+
+                .profile-doctor {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    // justify-content: center;
+                    .view-detail-doctor {
+                        a {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+
+            .dt-content-right {
+                width: 50%;
+                padding: 28px 10px;
+                display: flex;
+                flex-direction: column;
+
+                .schedule-doctor {
+                    flex: 1;
+                    margin-bottom: 20px;
+                }
+
+                .extra-info-doctor {
+                    flex: 1;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .detail-specialty-body {
+            margin: 5px 15px;
+
+            .each-doctor {
+                flex-direction: column;
+                height: auto;
+
+                .dt-content-left,
+                .dt-content-right {
+                    width: 100%;
+                    border-right: none;
+                }
+
+                .dt-content-left {
+                    border-bottom: 1px solid #eeeeee;
+                }
+            }
+        }
+    }
+}

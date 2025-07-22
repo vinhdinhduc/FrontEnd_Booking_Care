@@ -40,7 +40,7 @@ class HomeHeader extends Component {
             <div className="left-content">
               <FontAwesomeIcon icon={faBars} className="menu-bar" />
               <div className="header-logo" onClick={() => this.returnToHome()}>
-                ĐỨC VÌNH
+                MedicalBook
               </div>
             </div>
             <div className="center-content">
