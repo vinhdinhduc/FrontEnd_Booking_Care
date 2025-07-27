@@ -47,6 +47,9 @@
     "slick-carousel": "^1.8.1",
     "typescript": "^4.3.2"
   },
+   "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
