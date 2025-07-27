@@ -142,7 +142,18 @@ class BookingModal extends Component {
     this.setState({
       isSubmitting: true,
     });
-    let date = new Date(this.state.birthday).getTime();
+
+    let birthdayTimestamp = null;
+    if (this.state.birthday) {
+      birthdayTimestamp = moment(this.state.birthday).startOf("day").valueOf();
+    }
+
+    let appointmentTimestamp = null;
+    if (this.props.dataTime && this.props.dataTime.date) {
+      appointmentTimestamp = moment(this.props.dataTime.date)
+        .startOf("day")
+        .valueOf();
+    }
     let timeString = this.buildTimeBooking(this.props.dataTime);
     let doctorName = this.buildDoctorName(this.props.dataTime);
 
@@ -152,12 +163,12 @@ class BookingModal extends Component {
       email: this.state.email,
       address: this.state.address,
       reason: this.state.reason,
-      birthday: this.state.birthday,
+      birthday: birthdayTimestamp,
       selectedGender: this.state.selectedGender.value,
       doctorId: this.state.doctorId,
       genders: this.state.genders,
       timeType: this.state.timeType,
-      date: date,
+      date: appointmentTimestamp,
       language: this.props.language,
       timeString: timeString,
       doctorName: doctorName,
@@ -182,7 +193,6 @@ class BookingModal extends Component {
 
     let doctorId = dataTime && !_.isEmpty(dataTime) ? dataTime.doctorId : "";
 
-    console.log("check datatime booking modal", dataTime);
     return (
       <Modal
         isOpen={isOpenModal}

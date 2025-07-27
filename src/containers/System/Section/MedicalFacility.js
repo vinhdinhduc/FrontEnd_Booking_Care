@@ -23,7 +23,6 @@ class MedicalFacility extends Component {
   }
   async componentDidMount() {
     let res = await getAllClinic();
-    console.log("check res clinic", res);
 
     if (res && res.errCode === 0) {
       this.setState({
@@ -39,7 +38,6 @@ class MedicalFacility extends Component {
 
   render() {
     let { listClinic } = this.state;
-    console.log("Check state", this.state);
 
     return (
       <div className="section-share medical-facility">

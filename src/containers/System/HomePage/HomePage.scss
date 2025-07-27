@@ -1,4 +1,568 @@
-// Reset CSS cho Slick Carousel
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.home-header-container {
+    width: 100%;
+    height: 85px;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    background: #edfffa;
+    z-index: 100;
+
+    .home-header-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        .left-content {
+            width: 25%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            cursor: pointer;
+
+            .menu-bar {
+                font-size: 24px;
+            }
+            .header-logo {
+                font-size: 50px;
+                color: aqua;
+            }
+        }
+
+        .center-content {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+
+            .child-content {
+                .subs-title {
+                    font-size: 12px;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .right-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 25%;
+
+            .support {
+                display: flex;
+                justify-content: space-between;
+                font-size: 24px;
+                color: chocolate;
+                margin-right: 15px;
+            }
+
+            .language-vi {
+                margin: 0 5px;
+                cursor: pointer;
+                opacity: 0.2;
+
+                &.active {
+                    opacity: 1;
+                    span {
+                        color: orange;
+                    }
+                }
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+
+            .language-en {
+                cursor: pointer;
+                opacity: 0.2;
+
+                &.active {
+                    opacity: 1;
+                    span {
+                        color: orange;
+                    }
+                }
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
+
+.home-banner-header {
+    background: #92d7ee;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 485px;
+    display: flex;
+    background-position: center;
+    flex-direction: column;
+
+    .content-up {
+        background-image: linear-gradient(rgba(126, 126, 126, 0.25), rgba(255, 255, 255, 0.1));
+        height: 65%;
+        padding-top: 15px;
+
+        .banner-title {
+            h1 {
+                text-align: center;
+                color: aliceblue;
+                text-shadow: 1px gainsboro;
+                font-weight: 600;
+                margin-bottom: 15px;
+            }
+        }
+
+        .banner-search {
+            background-color: rgba(211, 233, 12, 0.616);
+            display: flex;
+            width: fit-content;
+            border-radius: 24px;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            padding: 10px;
+            cursor: pointer;
+
+            .icon-search {
+                font-size: 24px;
+                margin: 0 5px;
+            }
+
+            input {
+                height: 30px;
+                width: 385px;
+                background: transparent;
+                border: none;
+                outline: none;
+                margin-left: 5px;
+            }
+        }
+    }
+
+    .content-down {
+        padding: 15px;
+        height: 35%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        background-image: linear-gradient(rgba(126, 126, 126, 0.25), rgba(255, 255, 255, 0.1));
+
+        .options {
+            display: flex;
+            text-align: center;
+            gap: 50px;
+
+            .option-child {
+                width: 100px;
+                cursor: pointer;
+
+                .icon-child {
+                    margin: 0 auto;
+                    padding: 18px;
+                    width: 60px;
+                    height: 60px;
+                    color: aqua;
+                    border-radius: 50%;
+                    text-align: center;
+                    align-items: center;
+                    background-color: white;
+                }
+
+                .text-child {
+                    font-size: 14px;
+                    padding: 8px;
+                    font-weight: 500;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.body-no-scroll {
+    overflow: hidden;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Tablet landscape và desktop nhỏ */
+@media screen and (max-width: 1024px) {
+    .home-header-container {
+        padding: 0 15px;
+
+        .home-header-content {
+            .left-content .header-logo {
+                font-size: 40px;
+            }
+
+            .center-content .child-content .subs-title {
+                font-size: 11px;
+            }
+
+            .right-content .support {
+                font-size: 20px;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .home-banner-header {
+        height: 400px;
+
+        .content-up .banner-search input {
+            width: 300px;
+        }
+
+        .content-down .options {
+            gap: 30px;
+
+            .option-child {
+                width: 80px;
+
+                .icon-child {
+                    width: 50px;
+                    height: 50px;
+                    padding: 15px;
+                }
+
+                .text-child {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+
+/* Tablet portrait */
+@media screen and (max-width: 768px) {
+    .home-header-container {
+        height: 70px;
+        padding: 0 10px;
+
+        .home-header-content {
+            .left-content {
+                width: 30%;
+                justify-content: flex-start;
+                gap: 15px;
+
+                .menu-bar {
+                    font-size: 20px;
+                }
+
+                .header-logo {
+                    font-size: 32px;
+                }
+            }
+
+            .center-content {
+                width: 40%;
+                justify-content: center;
+
+                .child-content .subs-title {
+                    font-size: 10px;
+                }
+            }
+
+            .right-content {
+                width: 30%;
+                justify-content: flex-end;
+
+                .support {
+                    font-size: 18px;
+                    margin-right: 8px;
+                }
+
+                .language-vi,
+                .language-en {
+                    margin: 0 2px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .home-banner-header {
+        height: 350px;
+
+        .content-up {
+            .banner-title h1 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .banner-search {
+                padding: 8px;
+
+                .icon-search {
+                    font-size: 20px;
+                }
+
+                input {
+                    width: 250px;
+                    height: 25px;
+                }
+            }
+        }
+
+        .content-down {
+            padding: 10px;
+
+            .options {
+                gap: 20px;
+
+                .option-child {
+                    width: 70px;
+
+                    .icon-child {
+                        width: 45px;
+                        height: 45px;
+                        padding: 12px;
+                    }
+
+                    .text-child {
+                        font-size: 12px;
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Mobile landscape */
+@media screen and (max-width: 640px) {
+    .home-header-container {
+        .home-header-content {
+            .center-content {
+                display: none; /* Ẩn menu center trên mobile */
+            }
+
+            .left-content {
+                width: 60%;
+            }
+
+            .right-content {
+                width: 40%;
+            }
+        }
+    }
+
+    .home-banner-header {
+        .content-up .banner-search input {
+            width: 200px;
+        }
+
+        .content-down .options {
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .option-child {
+                width: 60px;
+
+                .text-child {
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+}
+
+/* Mobile portrait */
+@media screen and (max-width: 480px) {
+    .home-header-container {
+        height: 60px;
+        padding: 0 8px;
+
+        .home-header-content {
+            .left-content {
+                width: 70%;
+                gap: 10px;
+
+                .menu-bar {
+                    font-size: 18px;
+                }
+
+                .header-logo {
+                    font-size: 24px;
+                }
+            }
+
+            .right-content {
+                width: 30%;
+
+                .support {
+                    font-size: 16px;
+                    margin-right: 5px;
+                }
+
+                .language-vi,
+                .language-en {
+                    font-size: 12px;
+                    margin: 0 1px;
+                }
+            }
+        }
+    }
+
+    .home-banner-header {
+        height: 300px;
+
+        .content-up {
+            padding-top: 10px;
+
+            .banner-title h1 {
+                font-size: 20px;
+                margin-bottom: 8px;
+                padding: 0 10px;
+            }
+
+            .banner-search {
+                width: 90%;
+                max-width: 300px;
+                padding: 6px;
+
+                .icon-search {
+                    font-size: 18px;
+                    margin: 0 3px;
+                }
+
+                input {
+                    width: 100%;
+                    min-width: 150px;
+                    height: 24px;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .content-down {
+            padding: 8px;
+
+            .options {
+                gap: 10px;
+                flex-wrap: wrap;
+
+                .option-child {
+                    width: 55px;
+
+                    .icon-child {
+                        width: 35px;
+                        height: 35px;
+                        padding: 8px;
+                        font-size: 16px;
+                    }
+
+                    .text-child {
+                        font-size: 10px;
+                        padding: 3px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Mobile portrait nhỏ */
+@media screen and (max-width: 360px) {
+    .home-header-container {
+        .home-header-content {
+            .left-content .header-logo {
+                font-size: 20px;
+            }
+
+            .right-content {
+                .support {
+                    display: none; /* Ẩn support icon trên màn hình rất nhỏ */
+                }
+            }
+        }
+    }
+
+    .home-banner-header {
+        height: 280px;
+
+        .content-up {
+            .banner-title h1 {
+                font-size: 18px;
+            }
+
+            .banner-search input {
+                min-width: 120px;
+            }
+        }
+
+        .content-down .options {
+            gap: 8px;
+
+            .option-child {
+                width: 50px;
+
+                .icon-child {
+                    width: 30px;
+                    height: 30px;
+                    padding: 6px;
+                    font-size: 14px;
+                }
+
+                .text-child {
+                    font-size: 9px;
+                    padding: 2px;
+                }
+            }
+        }
+    }
+}
+
+/* Hover effects chỉ áp dụng cho desktop */
+@media (hover: hover) and (pointer: fine) {
+    .home-header-content .left-content:hover,
+    .home-header-content .center-content:hover,
+    .banner-search:hover,
+    .option-child:hover {
+        transform: translateY(-1px);
+        transition: transform 0.2s ease;
+    }
+
+    .language-vi:hover,
+    .language-en:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s ease;
+    }
+}
+
+/* Touch-friendly adjustments */
+@media (pointer: coarse) {
+    .home-header-content .left-content,
+    .home-header-content .center-content .child-content,
+    .banner-search,
+    .option-child,
+    .language-vi,
+    .language-en {
+        min-height: 44px; /* Minimum touch target size */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* ========== SECTIONS RESPONSIVE ========== */
+
+/* Slick Carousel Navigation */
 .slick-prev {
     top: 50% !important;
     transform: translateY(-50%);
@@ -49,14 +613,14 @@
     }
 }
 
-// Base Section Styles
+/* Main Sections */
 .section-share {
     min-height: 300px;
     background: #f8fafc;
     padding: 60px 0;
     transition: all 0.3s ease;
 
-    // Section Specialty
+    /* Section Specialty */
     &.section-specialty {
         background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
 
@@ -95,9 +659,8 @@
         }
     }
 
-    // Section Outstanding Doctor
+    /* Section Outstanding Doctor */
     &.section-outstanding-doctor {
-        // background: linear-gradient(135deg, #7aebc8 0%, #6bd4b8 100%);
         margin: 30px 0;
         padding: 60px 0;
 
@@ -156,7 +719,7 @@
         }
     }
 
-    // Section Handbook
+    /* Section Handbook */
     &.section-handbook {
         background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
 
@@ -194,7 +757,7 @@
         }
     }
 
-    // Section About
+    /* Section About */
     &.section-about {
         min-height: 500px;
         padding: 60px 100px;
@@ -244,9 +807,8 @@
         }
     }
 
-    // Container chung
+    /* Container chung */
     .section-container {
-        // max-width: 1200px;
         margin: 0 120px;
         padding: 0 20px;
         display: flex;
@@ -304,8 +866,6 @@
                 }
 
                 &.section-outstanding-doctor {
-                    // background: #1e293b;
-
                     &:hover {
                         background: #334155;
                         box-shadow: 0 4px 12px rgba(30, 41, 59, 0.4);
@@ -341,14 +901,6 @@
                             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
                         }
                     }
-
-                    &.medical-facility {
-                        // background-image: url("../../../assets/MedicalFacility/bach-mai.jfif");
-                    }
-
-                    &.section-handbook {
-                        background-image: url("../../../assets/MedicalFacility/viet-duc.jfif");
-                    }
                 }
 
                 .section-text {
@@ -366,7 +918,7 @@
     }
 }
 
-// Footer
+/* Footer */
 .home-footer {
     font-size: 14px;
     text-align: center;
@@ -389,28 +941,128 @@
     }
 }
 
-// Responsive Design
-@media (max-width: 1200px) {
+/* ========== SECTIONS RESPONSIVE DESIGN ========== */
+
+/* Desktop large */
+@media screen and (max-width: 1440px) {
     .section-share .section-container {
-        padding: 0 40px;
+        margin: 0 80px;
     }
 
     .section-share.section-about {
-        padding: 40px 60px;
+        padding: 60px 80px;
     }
 }
 
-@media (max-width: 768px) {
+/* Desktop và laptop */
+@media screen and (max-width: 1200px) {
+    .section-share {
+        .section-container {
+            margin: 0 40px;
+            padding: 0 15px;
+        }
+
+        &.section-about {
+            padding: 50px 40px;
+
+            .section-about-header {
+                font-size: 26px;
+            }
+
+            .section-about-content {
+                gap: 30px;
+
+                .content-right {
+                    font-size: 15px;
+                }
+            }
+        }
+
+        &.section-outstanding-doctor {
+            .section-customize .customize-border {
+                width: 300px;
+                height: 280px;
+                padding: 20px;
+            }
+        }
+    }
+}
+
+/* Tablet landscape */
+@media screen and (max-width: 1024px) {
+    .section-share {
+        padding: 50px 0;
+
+        .section-container {
+            margin: 0 30px;
+
+            .section-header {
+                margin-bottom: 30px;
+
+                .title-section {
+                    font-size: 26px;
+                }
+
+                .btn-section {
+                    padding: 10px 20px;
+                    font-size: 13px;
+                }
+            }
+        }
+
+        &.section-outstanding-doctor {
+            padding: 50px 0;
+
+            .section-customize .customize-border {
+                width: 280px;
+                height: 260px;
+                padding: 18px;
+
+                .bg-image.section-outstanding-doctor {
+                    width: 110px;
+                    height: 110px;
+                }
+
+                .position > div:first-child {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+    .slick-prev,
+    .slick-next {
+        width: 40px !important;
+        height: 40px !important;
+
+        &::before {
+            font-size: 14px !important;
+        }
+    }
+
+    .slick-prev {
+        left: -8px !important;
+    }
+
+    .slick-next {
+        right: -8px !important;
+    }
+}
+
+/* Tablet portrait */
+@media screen and (max-width: 768px) {
     .section-share {
         padding: 40px 0;
 
         .section-container {
-            padding: 0 20px;
+            margin: 0 20px;
+            padding: 0 10px;
 
             .section-header {
                 flex-direction: column;
                 gap: 20px;
                 text-align: center;
+                margin-bottom: 25px;
 
                 .title-section {
                     font-size: 24px;
@@ -420,11 +1072,24 @@
                         transform: translateX(-50%);
                     }
                 }
+
+                .btn-section {
+                    align-self: center;
+                    padding: 10px 18px;
+                    font-size: 13px;
+                }
             }
         }
 
         &.section-about {
             padding: 40px 20px;
+            min-height: 400px;
+
+            .section-about-header {
+                font-size: 22px;
+                margin-bottom: 20px;
+                padding: 15px 0;
+            }
 
             .section-about-content {
                 flex-direction: column;
@@ -433,6 +1098,65 @@
                 .content-left,
                 .content-right {
                     width: 100%;
+                }
+
+                .content-right {
+                    padding-top: 0;
+                    font-size: 14px;
+                    line-height: 1.6;
+
+                    p {
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+        }
+
+        &.section-outstanding-doctor {
+            margin: 20px 0;
+            padding: 40px 0;
+
+            .section-customize {
+                padding: 10px;
+
+                .customize-border {
+                    width: 100%;
+                    max-width: 280px;
+                    height: 240px;
+                    padding: 15px;
+                    margin: 0 auto;
+
+                    .bg-image.section-outstanding-doctor {
+                        width: 100px;
+                        height: 100px;
+                    }
+
+                    .position > div {
+                        &:first-child {
+                            font-size: 14px;
+                        }
+
+                        &:last-child {
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.section-specialty,
+        &.section-handbook {
+            .section-customize {
+                padding: 8px;
+
+                .bg-image {
+                    height: 130px;
+                    border-radius: 10px;
+                }
+
+                .section-text {
+                    font-size: 14px;
+                    margin-top: 10px;
                 }
             }
         }
@@ -449,12 +1173,63 @@
         width: 36px !important;
         height: 36px !important;
     }
+
+    .home-footer {
+        padding: 25px 15px;
+        font-size: 13px;
+
+        &::before {
+            width: 50px;
+            margin-bottom: 12px;
+        }
+    }
 }
 
-@media (max-width: 480px) {
+/* Mobile landscape */
+@media screen and (max-width: 640px) {
     .section-share {
         .section-container {
+            margin: 0 15px;
+
             .section-header {
+                .title-section {
+                    font-size: 22px;
+
+                    &::after {
+                        width: 50px;
+                        height: 2px;
+                    }
+                }
+            }
+        }
+
+        &.section-outstanding-doctor {
+            .section-customize .customize-border {
+                max-width: 250px;
+                height: 220px;
+
+                .bg-image.section-outstanding-doctor {
+                    width: 90px;
+                    height: 90px;
+                }
+            }
+        }
+    }
+}
+
+/* Mobile portrait */
+@media screen and (max-width: 480px) {
+    .section-share {
+        padding: 30px 0;
+
+        .section-container {
+            margin: 0 10px;
+            padding: 0 5px;
+
+            .section-header {
+                gap: 15px;
+                margin-bottom: 20px;
+
                 .title-section {
                     font-size: 20px;
                 }
@@ -466,21 +1241,187 @@
             }
         }
 
-        &.section-outstanding-doctor {
-            .section-customize {
-                .customize-border {
-                    padding: 15px;
+        &.section-about {
+            padding: 30px 15px;
 
-                    .bg-image.section-outstanding-doctor {
-                        width: 100px;
-                        height: 100px;
-                    }
+            .section-about-header {
+                font-size: 20px;
+                padding: 10px 0;
+                margin-bottom: 15px;
+            }
 
-                    .position > div:first-child {
-                        font-size: 14px;
+            .section-about-content {
+                gap: 15px;
+
+                .content-right {
+                    font-size: 13px;
+                    line-height: 1.5;
+
+                    p {
+                        margin-bottom: 12px;
                     }
                 }
             }
+        }
+
+        &.section-outstanding-doctor {
+            margin: 15px 0;
+            padding: 30px 0;
+
+            .section-customize {
+                padding: 5px;
+
+                .customize-border {
+                    width: 100%;
+                    max-width: 220px;
+                    height: 200px;
+                    padding: 12px;
+                    border-radius: 12px;
+
+                    .bg-image.section-outstanding-doctor {
+                        width: 80px;
+                        height: 80px;
+                        border-width: 3px;
+                    }
+
+                    .position > div {
+                        &:first-child {
+                            font-size: 13px;
+                            margin-bottom: 6px;
+                        }
+
+                        &:last-child {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.section-specialty,
+        &.section-handbook {
+            .section-customize {
+                padding: 5px;
+
+                .bg-image {
+                    height: 110px;
+                    border-radius: 8px;
+                }
+
+                .section-text {
+                    font-size: 13px;
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+
+    .slick-prev,
+    .slick-next {
+        width: 32px !important;
+        height: 32px !important;
+        border-width: 1px !important;
+
+        &::before {
+            font-size: 12px !important;
+        }
+    }
+
+    .home-footer {
+        padding: 20px 10px;
+        font-size: 12px;
+
+        &::before {
+            width: 40px;
+            height: 1px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+/* Mobile portrait nhỏ */
+@media screen and (max-width: 360px) {
+    .section-share {
+        .section-container {
+            margin: 0 5px;
+
+            .section-header .title-section {
+                font-size: 18px;
+
+                &::after {
+                    width: 40px;
+                }
+            }
+        }
+
+        &.section-outstanding-doctor {
+            .section-customize .customize-border {
+                max-width: 200px;
+                height: 180px;
+                padding: 10px;
+
+                .bg-image.section-outstanding-doctor {
+                    width: 70px;
+                    height: 70px;
+                }
+
+                .position > div {
+                    &:first-child {
+                        font-size: 12px;
+                    }
+
+                    &:last-child {
+                        font-size: 11px;
+                    }
+                }
+            }
+        }
+
+        &.section-specialty,
+        &.section-handbook {
+            .section-customize {
+                .bg-image {
+                    height: 100px;
+                }
+
+                .section-text {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    .home-footer {
+        padding: 15px 8px;
+        font-size: 11px;
+    }
+}
+
+/* Disable hover effects on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .section-share {
+        .section-customize:hover {
+            transform: none;
+        }
+
+        .bg-image:hover {
+            transform: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .customize-border:hover {
+            transform: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .section-text:hover,
+        .title-section:hover {
+            color: inherit;
+        }
+
+        .btn-section:hover {
+            transform: none;
+            background: #059669;
         }
     }
 }

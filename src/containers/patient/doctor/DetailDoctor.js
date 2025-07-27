@@ -16,6 +16,8 @@ import DoctorSchedule from "./DoctorSchedule";
 import "./DetailDoctor.scss";
 import { languages } from "../../../utils";
 import DoctorExtraInfo from "./DoctorExtraInfo";
+import LikeAndShare from "../SocialMedia/LikeAndShare";
+import Comments from "../SocialMedia/Comments";
 
 class DetailDoctor extends Component {
   constructor(props) {
@@ -55,6 +57,11 @@ class DetailDoctor extends Component {
       nameVi = `${detailDoctor.positionData.valueVi}, ${detailDoctor.firstName} ${detailDoctor.lastName}`;
       nameEn = `${detailDoctor.positionData.valueEn}, ${detailDoctor.firstName} ${detailDoctor.lastName}`;
     }
+
+    let currentURL =
+      process.env.REACT_APP_IS_LOCALHOST === false
+        ? "ok"
+        : window.location.href;
     return (
       <>
         <HomeHeader isShowBanner={false} />
@@ -79,6 +86,9 @@ class DetailDoctor extends Component {
                     <span>{detailDoctor.Markdown.description}</span>
                   )}
               </div>
+              <div className="like-share-plugin">
+                <LikeAndShare dataHref={currentURL} />
+              </div>
             </div>
           </div>
 
@@ -102,6 +112,9 @@ class DetailDoctor extends Component {
                   }}
                 ></div>
               )}
+          </div>
+          <div className="comment-doctor">
+            <Comments dataHref={currentURL} width={"100%"} />
           </div>
         </div>
       </>

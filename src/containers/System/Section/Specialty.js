@@ -23,7 +23,6 @@ class Specialty extends Component {
   }
   async componentDidMount() {
     let res = await getAllSpecialty();
-    console.log("Check res", res);
 
     if (res && res.errCode === 0) {
       this.setState({

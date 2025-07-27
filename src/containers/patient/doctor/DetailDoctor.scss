@@ -61,3 +61,351 @@
     }
   }
 }
+@media screen and (max-width: 1440px) {
+  .detail-doctor-container {
+    .schedule-doctor {
+      margin: 40px 80px;
+    }
+
+    .intro-doctor {
+      margin: 0 80px;
+    }
+
+    .detail-info-doctor {
+      padding: 20px 80px;
+    }
+  }
+}
+
+/* Desktop và laptop */
+@media screen and (max-width: 1200px) {
+  .detail-doctor-container {
+    .schedule-doctor {
+      margin: 30px 60px;
+      min-height: 180px;
+
+      .schedule-doctor_left {
+        padding-right: 15px;
+      }
+
+      .schedule-doctor_right {
+        padding-left: 15px;
+      }
+    }
+
+    .intro-doctor {
+      margin: 0 60px;
+      gap: 15px;
+
+      .content-left {
+        width: 110px;
+        height: 110px;
+      }
+
+      .content-right {
+        .up {
+          font-size: 19px;
+          padding-top: 10px;
+        }
+
+        .down {
+          padding-top: 8px;
+        }
+      }
+    }
+
+    .detail-info-doctor {
+      padding: 18px 60px;
+
+      h3 {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+/* Tablet landscape */
+@media screen and (max-width: 1024px) {
+  .detail-doctor-container {
+    .schedule-doctor {
+      margin: 25px 40px;
+      min-height: 160px;
+      gap: 20px;
+
+      .schedule-doctor_left {
+        width: 50%;
+        padding-right: 10px;
+      }
+
+      .schedule-doctor_right {
+        width: 50%;
+        padding-left: 10px;
+      }
+    }
+
+    .intro-doctor {
+      margin: 0 40px;
+
+      .content-left {
+        width: 100px;
+        height: 100px;
+      }
+
+      .content-right {
+        .up {
+          font-size: 18px;
+        }
+      }
+    }
+
+    .detail-info-doctor {
+      padding: 16px 40px;
+
+      h3 {
+        font-size: 15px;
+      }
+
+      .comment-doctor {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+/* Tablet portrait */
+@media screen and (max-width: 768px) {
+  .detail-doctor-container {
+    .schedule-doctor {
+      margin: 20px 30px;
+      flex-direction: column;
+      min-height: auto;
+      gap: 20px;
+
+      .schedule-doctor_left {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #eeeeee;
+        padding-right: 0;
+        padding-bottom: 20px;
+      }
+
+      .schedule-doctor_right {
+        width: 100%;
+        padding-left: 0;
+        padding-top: 20px;
+      }
+    }
+
+    .intro-doctor {
+      margin: 0 30px;
+      flex-direction: column;
+      text-align: center;
+      gap: 15px;
+
+      .content-left {
+        width: 90px;
+        height: 90px;
+        align-self: center;
+      }
+
+      .content-right {
+        text-align: center;
+
+        .up {
+          font-size: 17px;
+          padding-top: 0;
+        }
+
+        .down {
+          padding-top: 8px;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .detail-info-doctor {
+      padding: 15px 30px;
+
+      h3 {
+        font-size: 15px;
+        margin-bottom: 12px;
+      }
+
+      .comment-doctor {
+        font-size: 13px;
+        min-height: 40px;
+      }
+    }
+  }
+}
+
+/* Mobile landscape */
+@media screen and (max-width: 640px) {
+  .detail-doctor-container {
+    .schedule-doctor {
+      margin: 15px 20px;
+      gap: 15px;
+    }
+
+    .intro-doctor {
+      margin: 0 20px;
+
+      .content-left {
+        width: 80px;
+        height: 80px;
+        border-width: 2px;
+      }
+
+      .content-right {
+        .up {
+          font-size: 16px;
+        }
+
+        .down {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .detail-info-doctor {
+      padding: 12px 20px;
+
+      h3 {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      .comment-doctor {
+        font-size: 12px;
+        min-height: 35px;
+      }
+    }
+  }
+}
+
+/* Mobile portrait */
+@media screen and (max-width: 480px) {
+  .detail-doctor-container {
+    .schedule-doctor {
+      margin: 15px 15px;
+      gap: 12px;
+
+      .schedule-doctor_left {
+        padding-bottom: 15px;
+      }
+
+      .schedule-doctor_right {
+        padding-top: 15px;
+      }
+    }
+
+    .intro-doctor {
+      margin: 0 15px;
+      gap: 12px;
+
+      .content-left {
+        width: 70px;
+        height: 70px;
+      }
+
+      .content-right {
+        .up {
+          font-size: 15px;
+          line-height: 1.2;
+        }
+
+        .down {
+          padding-top: 6px;
+          font-size: 12px;
+          line-height: 1.4;
+        }
+      }
+    }
+
+    .detail-info-doctor {
+      padding: 10px 15px;
+
+      h3 {
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      .comment-doctor {
+        font-size: 12px;
+        min-height: 30px;
+        line-height: 1.4;
+      }
+    }
+  }
+}
+
+/* Mobile portrait nhỏ */
+@media screen and (max-width: 360px) {
+  .detail-doctor-container {
+    .schedule-doctor {
+      margin: 10px 10px;
+    }
+
+    .intro-doctor {
+      margin: 0 10px;
+
+      .content-left {
+        width: 60px;
+        height: 60px;
+      }
+
+      .content-right {
+        .up {
+          font-size: 14px;
+        }
+
+        .down {
+          font-size: 11px;
+        }
+      }
+    }
+
+    .detail-info-doctor {
+      padding: 8px 10px;
+
+      h3 {
+        font-size: 13px;
+        margin-bottom: 6px;
+      }
+
+      .comment-doctor {
+        font-size: 11px;
+        min-height: 25px;
+      }
+    }
+  }
+}
+
+/* Disable hover effects on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .section-share {
+    .section-customize:hover {
+      transform: none;
+    }
+
+    .bg-image:hover {
+      transform: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .customize-border:hover {
+      transform: none;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .section-text:hover,
+    .title-section:hover {
+      color: inherit;
+    }
+
+    .btn-section:hover {
+      transform: none;
+      background: #059669;
+    }
+  }
+}

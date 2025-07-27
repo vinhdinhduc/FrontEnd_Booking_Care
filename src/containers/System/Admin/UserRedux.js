@@ -120,7 +120,6 @@ class UserRedux extends Component {
   handleOnChangeInput = (event, id) => {
     let copyState = { ...this.state };
     copyState[id] = event.target.value;
-    console.log("check onChange State", copyState);
 
     this.setState({
       ...copyState,
@@ -130,7 +129,6 @@ class UserRedux extends Component {
     const arrInput = ["email", "password", "firstName", "lastName", "address"];
     let isValid = true;
     for (let i = 0; i < arrInput.length; i++) {
-      console.log("checkValidInput", arrInput[i], this.state[arrInput[i]]);
       if (!this.state[arrInput[i]]) {
         isValid = false;
         alert(`Missing parameter ${arrInput[i]}`);
@@ -197,9 +195,7 @@ class UserRedux extends Component {
 
   render() {
     const { language, usersRedux } = this.props;
-    console.log("checkUserRedux", usersRedux);
 
-    console.log("Check array code", this.state.genderArr);
     let arrResult = this.state.genderArr;
     let arrPosition = this.state.positionArr;
     let arrRole = this.state.roleArr;

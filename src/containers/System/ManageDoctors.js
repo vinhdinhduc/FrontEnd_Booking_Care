@@ -15,9 +15,7 @@ import "./ManageDoctors.scss";
 
 const mdParser = new MarkdownIt();
 
-function handleEditorChange({ html, text }) {
-  console.log("handleEditorChange", html, text);
-}
+function handleEditorChange({ html, text }) {}
 
 class ManageDoctors extends Component {
   constructor(props) {
@@ -293,12 +291,9 @@ class ManageDoctors extends Component {
           ? this.state.selectedClinic.value
           : "",
     });
-
-    console.log("check state: ", this.state);
   };
   render() {
     let { listDoctorsRedux, allRequiredInfoDoctor } = this.props;
-    console.log("Check allRequired", allRequiredInfoDoctor);
 
     let { hasOldData } = this.state;
 

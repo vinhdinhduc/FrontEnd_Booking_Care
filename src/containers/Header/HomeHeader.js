@@ -18,8 +18,49 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { languages } from "../../utils";
 import { changeLanguage } from "../../store/actions";
+import SideBar from "../../components/SideBar";
 
 class HomeHeader extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpenSideBar: false,
+    };
+    this.sideBarRef = React.createRef();
+  }
+
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleClickOutSide);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutSide);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.isOpenSideBar !== prevState.isOpenSideBar) {
+      if (this.state.isOpenSideBar) {
+        document.body.classList.add("body-no-scroll");
+      } else {
+        document.body.classList.remove("body-no-scroll");
+      }
+    }
+  }
+
+  handleClickOutSide = (event) => {
+    if (
+      this.sideBarRef.current &&
+      !this.sideBarRef.current.contains(event.target) &&
+      !event.target.closest(".menu-bar")
+    ) {
+      this.setState({
+        isOpenSideBar: false,
+      });
+    }
+  };
+  handleClickSideBar = () => {
+    this.setState((prevState) => ({
+      isOpenSideBar: !prevState.isOpenSideBar,
+    }));
+  };
   handleChangLanguage = (language) => {
     this.props.changeLanguageApp(language);
   };
@@ -31,14 +72,25 @@ class HomeHeader extends Component {
   };
   render() {
     let language = this.props.language;
-    console.log("check languae", language);
 
     return (
       <React.Fragment>
+        {this.state.isOpenSideBar && (
+          <div className="sidebar-overlay" onClick={this.handleClickSideBar} />
+        )}
+        <SideBar
+          isOpen={this.state.isOpenSideBar}
+          onClose={this.handleClickSideBar}
+          ref={this.sideBarRef}
+        />
         <div className="home-header-container">
           <div className="home-header-content">
             <div className="left-content">
-              <FontAwesomeIcon icon={faBars} className="menu-bar" />
+              <FontAwesomeIcon
+                icon={faBars}
+                className="menu-bar"
+                onClick={() => this.handleClickSideBar()}
+              />
               <div className="header-logo" onClick={() => this.returnToHome()}>
                 MedicalBook
               </div>

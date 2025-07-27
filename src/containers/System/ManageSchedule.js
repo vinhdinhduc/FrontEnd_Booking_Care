@@ -95,14 +95,12 @@ class ManageSchedule extends Component {
   // };
   handleClickTime = (time) => {
     this.setState((prevState) => {
-      console.log("Before:", prevState.rangeTime);
       const rangeTimeCopy = prevState.rangeTime.map((item) => {
         if (item.id === time.id) {
           return { ...item, isSelected: !item.isSelected };
         }
         return item;
       });
-      console.log("After:", rangeTimeCopy);
       return { rangeTime: rangeTimeCopy };
     });
   };
@@ -141,7 +139,6 @@ class ManageSchedule extends Component {
       formatedDate: formatedDate,
       doctorId: selectedDoctor.value,
     };
-    console.log("data to send", finalData);
     let res = await bulkCreateSchedule(finalData);
     if (res && res.errCode === 0) {
       toast.success("Thêm thông tin thành công");
@@ -152,7 +149,6 @@ class ManageSchedule extends Component {
     const { alltimeRedux, language } = this.props;
     const { rangeTime } = this.state;
     let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
-    console.log("Check state ", alltimeRedux);
 
     return (
       <>
@@ -203,7 +199,7 @@ class ManageSchedule extends Component {
               </div>
               <div className="col-12">
                 <button
-                  className="btn btn-primary btn-save-schedule"
+                  className="btn-save-schedule"
                   onClick={() => this.handleSaveSchedule()}
                 >
                   <FormattedMessage id="manage-schedule.save" />

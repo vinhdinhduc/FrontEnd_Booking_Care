@@ -11,7 +11,6 @@ const initialState = {
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.USER_LOGIN_SUCCESS:
-      console.log("USER_LOGIN_SUCCESS payload:", action.userInfo);
       return {
         ...state,
         isLoggedIn: true,

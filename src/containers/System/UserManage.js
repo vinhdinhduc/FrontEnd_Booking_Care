@@ -67,7 +67,6 @@ class UserManage extends Component {
     }
   };
   handleDeleteUser = async (userId) => {
-    console.log("check userId", userId);
     let res = await deleteUser(userId);
     if (res && res.errCode === 0) {
       await this.getAllUsersFromReact();
@@ -99,8 +98,7 @@ class UserManage extends Component {
     });
   };
   render() {
-    let arrUsers = this.state.arrUsers; // Lấy danh sách người dùng từ state
-    console.log(arrUsers);
+    let arrUsers = this.state.arrUsers;
 
     return (
       <div className="users-container">

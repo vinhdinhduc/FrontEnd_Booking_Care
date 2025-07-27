@@ -36,7 +36,6 @@ class EditUserModal extends Component {
     const arrInput = ["email", "firstName", "lastName", "address"];
     let isValid = true;
     for (let i = 0; i < arrInput.length; i++) {
-      console.log("checkValidInput", arrInput[i], this.state[arrInput[i]]);
       if (!this.state[arrInput[i]]) {
         isValid = false;
         alert(`Missing parameter ${arrInput[i]}`);
@@ -93,8 +92,6 @@ class EditUserModal extends Component {
   };
 
   render() {
-    console.log("check prop from parent", this.props);
-
     return (
       <div className="add-user-modal-container">
         <Modal

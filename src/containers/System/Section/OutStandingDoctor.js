@@ -28,7 +28,6 @@ class OutStandingDoctor extends Component {
     }
   }
   handleViewDetailDoctor = (doctor) => {
-    console.log("check doctor info", doctor);
     if (this.props.history) {
       this.props.history.push(`/detail-doctor/${doctor.id}`);
     }
@@ -36,7 +35,6 @@ class OutStandingDoctor extends Component {
 
   render() {
     let { topDoctors, language } = this.props;
-    console.log("check topDoctors: ", topDoctors);
     let arrDoctor = this.state.arrDoctors;
     // arrDoctor = arrDoctor.concat(arrDoctor, arrDoctor);
 

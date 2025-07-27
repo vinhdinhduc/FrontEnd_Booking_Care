@@ -44,7 +44,6 @@ class DetailClinic extends Component {
       let res = await getDetailClinicById({
         id: id,
       });
-      console.log("check res doctor id", res);
 
       if (res && res.errCode === 0) {
         let data = res.data;
@@ -137,7 +136,6 @@ class DetailClinic extends Component {
 
       isShowFullDescription,
     } = this.state;
-    console.log("check doctorId", arrDoctorId);
 
     let { language } = this.props;
     const breadcrumbItems = this.getBreadcrumbItems();
@@ -172,7 +170,6 @@ class DetailClinic extends Component {
           {arrDoctorId &&
             arrDoctorId.length > 0 &&
             arrDoctorId.map((item, index) => {
-              console.log("Doctor ID:", item);
               return (
                 <div className="each-doctor" key={index}>
                   <div className="dt-content-left">

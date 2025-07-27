@@ -1,3 +1,13 @@
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
 .home-header-container {
     width: 100%;
     height: 85px;
@@ -85,7 +95,7 @@
     }
 }
 .home-banner-header {
-    background: rgb(17, 99, 10);
+    background: #92d7ee;
     //background-image: url("../../assets/images/banner.jfif");
     background-repeat: no-repeat;
     background-size: cover;
@@ -166,5 +176,353 @@
                 }
             }
         }
+    }
+}
+.body-no-scroll {
+    overflow: hidden;
+}
+//responsive
+
+@media screen and (max-width: 1024) {
+    .home-header-container {
+        padding: 0 15px;
+        .home-header-content {
+            .left-content .header-logo {
+                font-size: 40px;
+            }
+            .center-content .child-content .subs-title {
+                font-size: 11px;
+            }
+            .right-content .support {
+                font-size: 20px;
+                margin-right: 10px;
+            }
+        }
+    }
+    .home-banner-header {
+        height: 400px;
+        .content-up .banner-search input {
+            width: 300px;
+        }
+        .content-down {
+            gap: 30px;
+            .option-child {
+                width: 80px;
+                .icon-child {
+                    width: 50px;
+                    height: 50px;
+                    padding: 15px;
+                }
+
+                .text-child {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .home-header-container {
+        height: 70px;
+        padding: 0 10px;
+
+        .home-header-content {
+            .left-content {
+                width: 30%;
+                justify-content: flex-start;
+                gap: 15px;
+
+                .menu-bar {
+                    font-size: 20px;
+                }
+
+                .header-logo {
+                    font-size: 32px;
+                }
+            }
+
+            .center-content {
+                width: 40%;
+                justify-content: center;
+
+                .child-content .subs-title {
+                    font-size: 10px;
+                }
+            }
+
+            .right-content {
+                width: 30%;
+                justify-content: flex-end;
+
+                .support {
+                    font-size: 18px;
+                    margin-right: 8px;
+                }
+
+                .language-vi,
+                .language-en {
+                    margin: 0 2px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .home-banner-header {
+        height: 350px;
+
+        .content-up {
+            .banner-title h1 {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .banner-search {
+                padding: 8px;
+
+                .icon-search {
+                    font-size: 20px;
+                }
+
+                input {
+                    width: 250px;
+                    height: 25px;
+                }
+            }
+        }
+
+        .content-down {
+            padding: 10px;
+
+            .options {
+                gap: 20px;
+
+                .option-child {
+                    width: 70px;
+
+                    .icon-child {
+                        width: 45px;
+                        height: 45px;
+                        padding: 12px;
+                    }
+
+                    .text-child {
+                        font-size: 12px;
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//mobile
+
+@media screen and (max-width: 640px) {
+    .home-header-container {
+        .home-header-content {
+            .center-content {
+                display: none; /* Ẩn menu center trên mobile */
+            }
+
+            .left-content {
+                width: 60%;
+            }
+
+            .right-content {
+                width: 40%;
+            }
+        }
+    }
+
+    .home-banner-header {
+        .content-up .banner-search input {
+            width: 200px;
+        }
+
+        .content-down .options {
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .option-child {
+                width: 60px;
+
+                .text-child {
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 480px) {
+    .home-header-container {
+        height: 60px;
+        padding: 0 8px;
+
+        .home-header-content {
+            .left-content {
+                width: 70%;
+                gap: 10px;
+
+                .menu-bar {
+                    font-size: 18px;
+                }
+
+                .header-logo {
+                    font-size: 24px;
+                }
+            }
+
+            .right-content {
+                width: 30%;
+
+                .support {
+                    font-size: 16px;
+                    margin-right: 5px;
+                }
+
+                .language-vi,
+                .language-en {
+                    font-size: 12px;
+                    margin: 0 1px;
+                }
+            }
+        }
+    }
+
+    .home-banner-header {
+        height: 300px;
+
+        .content-up {
+            padding-top: 10px;
+
+            .banner-title h1 {
+                font-size: 20px;
+                margin-bottom: 8px;
+                padding: 0 10px;
+            }
+
+            .banner-search {
+                width: 90%;
+                max-width: 300px;
+                padding: 6px;
+
+                .icon-search {
+                    font-size: 18px;
+                    margin: 0 3px;
+                }
+
+                input {
+                    width: 100%;
+                    min-width: 150px;
+                    height: 24px;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .content-down {
+            padding: 8px;
+
+            .options {
+                gap: 10px;
+                flex-wrap: wrap;
+
+                .option-child {
+                    width: 55px;
+
+                    .icon-child {
+                        width: 35px;
+                        height: 35px;
+                        padding: 8px;
+                        font-size: 16px;
+                    }
+
+                    .text-child {
+                        font-size: 10px;
+                        padding: 3px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 360px) {
+    .home-header-container {
+        .home-header-content {
+            .left-content .header-logo {
+                font-size: 20px;
+            }
+
+            .right-content {
+                .support {
+                    display: none; /* Ẩn support icon trên màn hình rất nhỏ */
+                }
+            }
+        }
+    }
+
+    .home-banner-header {
+        height: 280px;
+
+        .content-up {
+            .banner-title h1 {
+                font-size: 18px;
+            }
+
+            .banner-search input {
+                min-width: 120px;
+            }
+        }
+
+        .content-down .options {
+            gap: 8px;
+
+            .option-child {
+                width: 50px;
+
+                .icon-child {
+                    width: 30px;
+                    height: 30px;
+                    padding: 6px;
+                    font-size: 14px;
+                }
+
+                .text-child {
+                    font-size: 9px;
+                    padding: 2px;
+                }
+            }
+        }
+    }
+}
+@media (hover: hover) and (pointer: fine) {
+    .home-header-content .left-content:hover,
+    .home-header-content .center-content:hover,
+    .banner-search:hover,
+    .option-child:hover {
+        transform: translateY(-1px);
+        transition: transform 0.2s ease;
+    }
+
+    .language-vi:hover,
+    .language-en:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s ease;
+    }
+}
+
+@media (pointer: coarse) {
+    .home-header-content .left-content,
+    .home-header-content .center-content .child-content,
+    .banner-search,
+    .option-child,
+    .language-vi,
+    .language-en {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

@@ -106,8 +106,6 @@ class DoctorSchedule extends Component {
           allAvalableTime: res.data ? res.data : [],
         });
       }
-
-      console.log("check res schedule", res);
     }
   };
   handleClickScheduleTime = (time) => {
@@ -115,7 +113,6 @@ class DoctorSchedule extends Component {
       isOpenModalBooking: true,
       dataScheduleTimeModal: time,
     });
-    console.log("Check time modal", time);
   };
   closeBookingModal = () => {
     this.setState({
@@ -130,7 +127,6 @@ class DoctorSchedule extends Component {
       isOpenModalBooking,
       dataScheduleTimeModal,
     } = this.state;
-    console.log("check alldat", allDays);
 
     let { language } = this.props;
     return (

@@ -12,9 +12,7 @@ import "./TableUserRedux.scss";
 
 const mdParser = new MarkdownIt();
 
-function handleEditorChange({ html, text }) {
-  console.log("handleEditorChange", html, text);
-}
+function handleEditorChange({ html, text }) {}
 
 class TableUserRedux extends Component {
   constructor(props) {
@@ -45,11 +43,6 @@ class TableUserRedux extends Component {
 
   render() {
     let arrUsers = this.state.listUsers;
-    console.log(
-      "check props from table user redux: ",
-      this.props.listUserRedux
-    );
-    console.log("check state from table user redux: ", this.state.listUsers);
 
     return (
       <>

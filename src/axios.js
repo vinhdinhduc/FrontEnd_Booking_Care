@@ -3,7 +3,7 @@ import _ from "lodash";
 //import config from "./config";
 
 const instance = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: "https://ducvinh-medical-book.onrender.com",
   // withCredentials: true,
 });
 

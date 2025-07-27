@@ -181,7 +181,6 @@ export const fetchTopDoctors = () => {
   return async (dispatch, getState) => {
     try {
       let res = await getTopDoctorService("10");
-      console.log("check data response: ", res);
 
       if (res && res.errCode === 0) {
         dispatch({
@@ -205,7 +204,6 @@ export const fetchAllDoctors = () => {
   return async (dispatch, getState) => {
     try {
       let res = await getAllDoctors();
-      console.log("check data response: ", res);
 
       if (res && res.errCode === 0) {
         dispatch({
@@ -228,7 +226,6 @@ export const saveDetailDoctor = (inputData) => {
   return async (dispatch, getState) => {
     try {
       let res = await saveInfoDoctor(inputData);
-      console.log("check data response: ", res);
 
       if (res && res.errCode === 0) {
         toast.success("Save info doctor successfully!");

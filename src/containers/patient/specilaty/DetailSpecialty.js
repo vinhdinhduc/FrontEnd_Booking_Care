@@ -46,8 +46,6 @@ class DetailSpecialty extends Component {
         location: "ALL",
       });
       let resProvince = await getAllCodeService("PROVINCE");
-      console.log("check res", res);
-      console.log("check resPronvince", resProvince);
 
       if (
         res &&
@@ -165,7 +163,6 @@ class DetailSpecialty extends Component {
       listProvinces,
       isShowFullDescription,
     } = this.state;
-    console.log("Check state", this.state);
     let { language } = this.props;
     const breadcrumbItems = this.getBreadcrumbItems();
     return (
@@ -209,7 +206,6 @@ class DetailSpecialty extends Component {
           {arrDoctorId &&
             arrDoctorId.length > 0 &&
             arrDoctorId.map((item, index) => {
-              console.log("Doctor ID:", item);
               return (
                 <div className="each-doctor" key={index}>
                   <div className="dt-content-left">
